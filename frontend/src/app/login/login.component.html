@@ -1,0 +1,232 @@
+<div>
+  <! ––Login form ––>
+  <form
+    class="screen-1"
+    *ngIf="step === 'signin'"
+    [formGroup]="mylogin"
+    (ngSubmit)="onSubmitLogin()"
+  >
+    <svg
+      fill="hsl(233deg 36% 38%)"
+      viewBox="-9.6 -9.6 51.20 51.20"
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="hsl(233deg 36% 38%)"
+      transform="matrix(-1, 0, 0, -1, 0, 0)rotate(180)"
+      stroke-width="0.00032"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M27.5,12A2.5,2.5,0,0,0,25,14.5V13a1,1,0,0,0-1-1H8a1,1,0,0,0-1,1v1.5a2.5,2.5,0,0,0-5,0v6a2.5,2.5,0,0,0,5,0V24a1,1,0,0,0,1,1h2v4.5a2.5,2.5,0,0,0,5,0V25h2v4.5a2.5,2.5,0,0,0,5,0V25h2a1,1,0,0,0,1-1V20.5a2.5,2.5,0,0,0,5,0v-6A2.5,2.5,0,0,0,27.5,12ZM5,20.5a.5.5,0,0,1-1,0v-6a.5.5,0,0,1,1,0Zm8,9a.5.5,0,0,1-1,0V25h1Zm6.5.5a.51.51,0,0,1-.5-.5V25h1v4.5A.51.51,0,0,1,19.5,30ZM23,23H9V14H23Zm5-2.5a.5.5,0,0,1-1,0v-6a.5.5,0,0,1,1,0Z"
+        ></path>
+        <path
+          d="M7.08,9.88a1,1,0,0,0,.24.78,1,1,0,0,0,.75.34H23.93a1,1,0,0,0,.75-.34,1,1,0,0,0,.24-.78A9,9,0,0,0,21.65,4l2.18-2.18A1,1,0,0,0,22.42.42L19.93,2.91A9,9,0,0,0,16,2a8.87,8.87,0,0,0-4.42,1.18L8.82.42A1,1,0,0,0,7.4.42a1,1,0,0,0,0,1.41L9.94,4.37A8.94,8.94,0,0,0,7.08,9.88ZM22.7,9H9.3A7,7,0,0,1,22.7,9Z"
+        ></path>
+      </g>
+    </svg>
+    <div class="email">
+      <label for="email">Email Address</label>
+      <div class="sec-2">
+        <ion-icon name="mail-outline"></ion-icon
+        ><input
+          type="email"
+          formControlName="email"
+          placeholder="Username@gmail.com"
+        />
+      </div>
+    </div>
+
+    <div class="password">
+      <label for="password">Password</label>
+      <div class="sec-2">
+        <ion-icon name="lock-closed-outline"></ion-icon
+        ><input
+          class="pas"
+          id="password"
+          [type]="show ? 'text' : 'password'"
+          formControlName="password"
+          placeholder="············"
+        />
+        <ion-icon
+          class="show-hide"
+          (click)="showPassword()"
+          name="eye-outline"
+        ></ion-icon>
+      </div>
+    </div>
+
+    <button class="login" type="submit">Login</button>
+    <div class="footer">
+      <span (click)="SwitchSign('signup')">Sign Up</span
+      ><span>Forgot Password?</span>
+    </div>
+  </form>
+  <! –– Register form ––>
+  <form
+    class="screen-1"
+    *ngIf="step === 'signup'"
+    [formGroup]="myForm"
+    (ngSubmit)="onSubmitRegister()"
+  >
+    <svg
+      fill="hsl(233deg 36% 38%)"
+      viewBox="-9.6 -9.6 51.20 51.20"
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="hsl(233deg 36% 38%)"
+      transform="matrix(-1, 0, 0, -1, 0, 0)rotate(180)"
+      stroke-width="0.00032"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M27.5,12A2.5,2.5,0,0,0,25,14.5V13a1,1,0,0,0-1-1H8a1,1,0,0,0-1,1v1.5a2.5,2.5,0,0,0-5,0v6a2.5,2.5,0,0,0,5,0V24a1,1,0,0,0,1,1h2v4.5a2.5,2.5,0,0,0,5,0V25h2v4.5a2.5,2.5,0,0,0,5,0V25h2a1,1,0,0,0,1-1V20.5a2.5,2.5,0,0,0,5,0v-6A2.5,2.5,0,0,0,27.5,12ZM5,20.5a.5.5,0,0,1-1,0v-6a.5.5,0,0,1,1,0Zm8,9a.5.5,0,0,1-1,0V25h1Zm6.5.5a.51.51,0,0,1-.5-.5V25h1v4.5A.51.51,0,0,1,19.5,30ZM23,23H9V14H23Zm5-2.5a.5.5,0,0,1-1,0v-6a.5.5,0,0,1,1,0Z"
+        ></path>
+        <path
+          d="M7.08,9.88a1,1,0,0,0,.24.78,1,1,0,0,0,.75.34H23.93a1,1,0,0,0,.75-.34,1,1,0,0,0,.24-.78A9,9,0,0,0,21.65,4l2.18-2.18A1,1,0,0,0,22.42.42L19.93,2.91A9,9,0,0,0,16,2a8.87,8.87,0,0,0-4.42,1.18L8.82.42A1,1,0,0,0,7.4.42a1,1,0,0,0,0,1.41L9.94,4.37A8.94,8.94,0,0,0,7.08,9.88ZM22.7,9H9.3A7,7,0,0,1,22.7,9Z"
+        ></path>
+      </g>
+    </svg>
+    <div class="email">
+      <label for="email">Email Address</label>
+      <div class="sec-2">
+        <ion-icon name="mail-outline"></ion-icon
+        ><input
+          type="email"
+          formControlName="email"
+          placeholder="Username@gmail.com"
+        />
+      </div>
+    </div>
+    <div
+      *ngIf="
+        myForm.get('email')?.touched &&
+        myForm.get('email')?.hasError('required')
+      "
+    >
+      Email is required.
+    </div>
+    <div
+      *ngIf="
+        myForm.get('email')?.touched && myForm.get('email')?.hasError('email')
+      "
+    >
+      Please enter a valid email address.
+    </div>
+    <div class="password">
+      <label for="userName">Username </label>
+      <div class="sec-2">
+        <ion-icon name="person-outline"></ion-icon
+        ><input type="text" formControlName="username" placeholder="Username" />
+      </div>
+    </div>
+    <div
+      *ngIf="
+        myForm.get('username')?.touched &&
+        myForm.get('username')?.hasError('required')
+      "
+    >
+      Name is required.
+    </div>
+    <div *ngIf="myForm.get('username')?.hasError('minlength')">
+      Name must be at least 3 characters long.
+    </div>
+
+    <div class="password">
+      <label for="password">Password</label>
+      <div class="sec-2">
+        <ion-icon name="lock-closed-outline"></ion-icon
+        ><input
+          class="pas"
+          id="password"
+          [type]="show ? 'text' : 'password'"
+          formControlName="password"
+          placeholder="············"
+        />
+        <ion-icon
+          class="show-hide"
+          (click)="showPassword()"
+          name="eye-outline"
+        ></ion-icon>
+      </div>
+    </div>
+    <div
+      *ngIf="
+        myForm.get('password')?.touched &&
+        myForm.get('password')?.hasError('required')
+      "
+    >
+      Password is required.
+    </div>
+    <div
+      *ngIf="
+        myForm.get('password')?.touched &&
+        myForm.get('password')?.hasError('minlength')
+      "
+    >
+      Password must be at least 6 characters long.
+    </div>
+    <div class="password">
+      <label for="confirmPassword">Confirmer Password</label>
+      <div class="sec-2">
+        <ion-icon name="lock-closed-outline"></ion-icon
+        ><input
+          class="pas"
+          type="password"
+          id="confirmPassword"
+          current
+          [type]="show ? 'text' : 'password'"
+          formControlName="confirmPassword"
+          placeholder="············"
+        />
+
+        <ion-icon
+          class="show-hide"
+          (click)="showPassword()"
+          name="eye-outline"
+        ></ion-icon>
+      </div>
+    </div>
+    <div *ngIf="myForm.hasError('passwordMismatch')">
+      Password and confirmation do not match.
+    </div>
+    <div
+      *ngIf="responseMessageSuccess"
+      [@fadeInOut]
+      class="alert"
+      [ngStyle]="{ backgroundColor: 'green' }"
+    >
+      <p>{{ responseMessageSuccess }}</p>
+    </div>
+    <div
+      *ngIf="responseMessageErreur"
+      [@fadeInOut]
+      class="alert"
+      [ngStyle]="{ backgroundColor: '#e16969' }"
+    >
+      <p>{{ responseMessageErreur }}</p>
+    </div>
+    <button
+      class="login"
+      type="submit"
+      [style.backgroundColor]="
+        myForm.valid ? 'hsl(233, 36%, 38%)' : 'hsl(0deg 0% 77.95%)'
+      "
+      [disabled]="!myForm.valid"
+    >
+      Register
+    </button>
+    <div class="footer">
+      <span (click)="SwitchSign('signin')">Sign In</span>
+    </div>
+  </form>
+</div>
