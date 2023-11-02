@@ -59,7 +59,14 @@
         ></ion-icon>
       </div>
     </div>
-
+    <div
+      *ngIf="responseMessageLoginErreur"
+      [@fadeInOut]
+      class="alert"
+      [ngStyle]="{ backgroundColor: '#e16969' }"
+    >
+      <p>{{ responseMessageLoginErreur }}</p>
+    </div>
     <button class="login" type="submit">Login</button>
     <div class="footer">
       <span (click)="SwitchSign('signup')">Sign Up</span

@@ -29,6 +29,7 @@ export class LoginComponent {
   step: string = 'signin';
   responseMessageSuccess: string = '';
   responseMessageErreur: string = '';
+  responseMessageLoginErreur: string = '';
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
@@ -66,12 +67,12 @@ export class LoginComponent {
       this.loginService.signUp(this.myForm.value).subscribe(
         (response) => {
           this.responseMessageSuccess = response;
-          setTimeout(() => (this.responseMessageSuccess = ''), 1000);
+          setTimeout(() => (this.responseMessageSuccess = ''), 2000);
         },
         (error) => {
           console.log(error);
           this.responseMessageErreur = error.error;
-          setTimeout(() => (this.responseMessageErreur = ''), 1000);
+          setTimeout(() => (this.responseMessageErreur = ''), 2000);
         }
       );
     } else {
@@ -85,6 +86,8 @@ export class LoginComponent {
       },
       (error) => {
         console.log(error);
+        this.responseMessageLoginErreur = error.error;
+        setTimeout(() => (this.responseMessageLoginErreur = ''), 2000);
       }
     );
   }
